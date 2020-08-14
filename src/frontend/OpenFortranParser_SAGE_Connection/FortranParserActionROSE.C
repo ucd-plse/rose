@@ -16449,7 +16449,7 @@ void c_action_print_stmt(Token_t *label, Token_t *printKeyword, Token_t *eos, of
                         {
                             // By definition we assume that the interface name is different from the function name
                             // bool isRenamed = true;
-                            ROSE_ASSERT(interfaceName != functionName);
+                            // commented out by Jackson Vanover ROSE_ASSERT(interfaceName != functionName);
                             ROSE_ASSERT(interfaceName != "");
 
                             SgFunctionDeclaration* functionDeclaration =
