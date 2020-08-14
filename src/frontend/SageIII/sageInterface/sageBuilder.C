@@ -5498,7 +5498,11 @@ SageBuilder::buildDefiningFunctionDeclaration_T(const SgName & XXX_name, SgType*
 
      if (SageInterface::is_Python_language() == false)
         {
-          ROSE_ASSERT(scope->containsOnlyDeclarations());
+	  // Added by Jackson Vanover, 8/12
+	  if (SageInterface::is_Fortran_language() == false)
+	  {
+		ROSE_ASSERT(scope->containsOnlyDeclarations());
+	  }
         }
 
   // actualFunction* firstNondefiningFunctionDeclaration = NULL;
