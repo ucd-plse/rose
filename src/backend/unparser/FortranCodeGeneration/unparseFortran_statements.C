@@ -1908,7 +1908,13 @@ FortranCodeGeneration_locatedNode::unparseInterfaceStmt(SgStatement* stmt, SgUnp
 #endif
           if (outputFunctionName == true)
              {
-               curprint("MODULE PROCEDURE ");
+                // conditional added by Jackson Vanover
+               if ( !functionDeclaration->get_declarationModifier().get_accessModifier().isPublic() ){
+                  curprint("PROCEDURE ");
+               }
+               else{
+                  curprint("MODULE PROCEDURE ");
+               }
                curprint(functionName.str());
                unp->cur.insert_newline(1);
              }
