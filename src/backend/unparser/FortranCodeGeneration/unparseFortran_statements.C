@@ -1908,12 +1908,9 @@ FortranCodeGeneration_locatedNode::unparseInterfaceStmt(SgStatement* stmt, SgUnp
 #endif
           if (outputFunctionName == true)
              {
-                // conditional added by Jackson Vanover
-               if ( (SgProcedureHeaderStatement* temp1 = isSgProcedureHeaderStatement(functionDeclaration))
-			&& (SgAccessModifier temp2 = temp1->get_declarationModifier().get_accessModifier())
-			&& (temp2.get_isModified())
-			&& (temp2.isPrivate()) ){
-                          curprint("PROCEDURE ");
+                // conditionals added by Jackson Vanover
+               if ( (functionDeclaration->get_declarationModifier().get_accessModifier().isPrivate()) && (functionDeclaration->get_declarationModifier().get_accessModifier().get_isModified()) ){
+                  curprint("PROCEDURE ");
                }
                else{
                   curprint("MODULE PROCEDURE ");
