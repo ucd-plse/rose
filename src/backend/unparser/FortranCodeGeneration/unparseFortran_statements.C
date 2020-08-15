@@ -1909,7 +1909,7 @@ FortranCodeGeneration_locatedNode::unparseInterfaceStmt(SgStatement* stmt, SgUnp
           if (outputFunctionName == true)
              {
                 // conditionals added by Jackson Vanover
-               if ( (functionDeclaration->get_declarationModifier().get_accessModifier().isPrivate()) && (functionDeclaration->get_declarationModifier().get_accessModifier().get_isModified()) ){
+               if ( (functionDeclaration->get_declarationModifier().get_accessModifier().get_isModified()) && (functionDeclaration->get_declarationModifier().get_accessModifier().isPrivate())){
                   curprint("PROCEDURE ");
                }
                else{
