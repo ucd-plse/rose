@@ -1,3 +1,7 @@
+# build and install directories
+install_dir
+build_dir
+
 # Editor backups
 *~
 # libtool temp dir
