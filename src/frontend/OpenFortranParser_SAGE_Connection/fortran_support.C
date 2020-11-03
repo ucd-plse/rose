@@ -3852,6 +3852,11 @@ generateIntrinsicFunctionReturnType( string s , SgExprListExp* argumentList )
           returnType = generateImplicitType(s);
         }
 
+   // (11/2/20): Added by Jackson Vanover
+   if ( matchingName(s, "present") ){
+      returnType = SgTypeBool::createType();
+   }
+
   // Use the implicit type rules, however that is not likely good enough since 
   // many intrinsic functions have explicitly predefined types.
   // return generateImplicitType(s);
