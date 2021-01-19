@@ -3853,8 +3853,14 @@ generateIntrinsicFunctionReturnType( string s , SgExprListExp* argumentList )
         }
 
    // (11/2/20): Added by Jackson Vanover
-   if ( matchingName(s, "present") ){
+   // (1/15/21): further modified with other bool return intrinsics
+   if ( matchingName(s, "present") || matchingName(s, "associated")){
       returnType = SgTypeBool::createType();
+   }
+
+   // (1/15/21): Added by Jackson Vanover
+   if ( matchingName(s, "trim") || matchingName(s, "adjustl") || matchingName(s, "adjustr") ){
+      returnType = SgTypeString::createType(SageBuilder::buildIntVal(1));
    }
 
   // Use the implicit type rules, however that is not likely good enough since 
